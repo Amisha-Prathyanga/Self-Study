@@ -3,11 +3,25 @@ function calculateStepCount(inputMatrix, outputMatrix) {
   for (let i = 0; i < inputMatrix.length; i++) {
     for (let j = 0; j < inputMatrix[i].length; j++) {
       if (inputMatrix[i][j] !== outputMatrix[i][j]) {
+        let location = findLocation(inputMatrix, outputMatrix[i][j]);
+        let temp = inputMatrix[i][j];
+        inputMatrix[i][j] = inputMatrix[location[0]][location[1]];
+        inputMatrix[location[0]][location[1]] = temp;
         count += 1;
       }
     }
   }
-  return Math.ceil(count / 2);
+  return count;
+}
+
+function findLocation(inputMatrix, num) {
+  for (let i = 0; i < inputMatrix.length; i++) {
+    for (let j = 0; j < inputMatrix[i].length; j++) {
+      if (inputMatrix[i][j] === num) {
+        return [i, j];
+      }
+    }
+  }
 }
 
 console.log(
