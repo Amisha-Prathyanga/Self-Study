@@ -61,7 +61,7 @@ function icecreamParlor(m, arr) {
   //declaring and initializing variables
   let arrMin = 9999;
   let index1, index2;
-  let remainMoney;
+  let remain;
 
   //find minimun value of prices
   for (let i = 0; i < arr.length; i++) {
@@ -70,11 +70,11 @@ function icecreamParlor(m, arr) {
       index1 = i + 1;
     }
   }
-  remainMoney = m - arrMin; //calculate remaining money
+  remain = m - arrMin; //calculate remaining money
 
   //find next value eqaual to remaining money
   for (let j = 0; j < arr.length; j++) {
-    if (arr[j] == remainMoney) {
+    if (arr[j] == remain) {
       index2 = j + 1;
     }
   }
@@ -92,4 +92,4 @@ function icecreamParlor(m, arr) {
   return retArr;
 }
 
-console.log(icecreamParlor(9, [6, 3, 5, 1, 2]));
+console.log(icecreamParlor(4, [6, 3, 5, 1, 2]));
