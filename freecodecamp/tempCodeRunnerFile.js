@@ -1,1 +1,1 @@
-inputMatrix[i][j] === outputMatrix[i][j];
+.join("")
