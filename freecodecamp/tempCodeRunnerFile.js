@@ -1,1 +1,3 @@
-.join("")
+else {
+        grid[i][j] = "o";
+      }
