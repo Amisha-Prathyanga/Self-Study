@@ -1,12 +1,27 @@
-function VirusGuard(sectorsize, cleanrate, replicationrate) {
-  let result = [];
+const itemList = [
+  { weight: 10, price: 20, size: 30 },
+  { weight: 15, price: 25, size: 35 },
+  { weight: 20, price: 30, size: 40 },
+  { weight: 25, price: 35, size: 40 },
+];
 
-  let replicatedData = Math.pow(2, -7) * replicationrate;
+function getTotalPrice(items, maxWeight, maxSize, curIndex) {
+  let totalPrice = 0;
+  let curWeight = 0;
+  let curSize = 0;
 
-  replicatedSectorSize = sectorsize * (1 + replicatedData);
+  for (let i = 0; i < curIndex; i++) {
+    if (
+      curWeight + items[i].weight <= maxWeight &&
+      curSize + items[i].size <= maxSize
+    ) {
+      curWeight += items[i].weight;
+      curSize += items[i].size;
+      totalPrice += items[i].price;
+    }
+  }
 
-  result = (replicatedSectorSize * 8192) / cleanrate;
-
-  return result;
+  return totalPrice;
 }
-console.log(VirusGuard(8 * 1024 * 1024, 5.12 * 1024 * 1000, 2.5));
+
+console.log(getTotalPrice(itemList, 30, 100, itemList.length));
