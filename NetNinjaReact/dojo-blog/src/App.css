@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.detail-preview{
+  max-width: 500px;
+}
+
+.detail-preview h3{
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 8px;
+}

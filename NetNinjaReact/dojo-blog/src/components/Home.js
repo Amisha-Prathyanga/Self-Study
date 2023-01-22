@@ -1,9 +1,13 @@
-import {useState} from 'react';
-
+import { useState } from "react";
 
 const Home = () => {
-    const [name, setName] = useState("Amisha");
-  
+  const [name, setName] = useState("Amisha");
+
+  const [details, setDetails] = useState([
+    { fName: "Amisha", lName: "Prathyanga", age: 23 },
+    { fName: "Jack", lName: "Ryan", age: 35 },
+    { fName: "Jhon", lName: "Simmons", age: 43 },
+  ]);
 
   const handleClick = () => {
     alert("Hello Bro!");
@@ -11,7 +15,7 @@ const Home = () => {
 
   const handleClickAgain = (name) => {
     alert("Hello Again" + name);
-    setName('Prathyanga');
+    setName("Prathyanga");
   };
   return (
     <div className="home">
@@ -21,6 +25,13 @@ const Home = () => {
 
       {/* Wraps the handle function inside another function to pass parameters */}
       <button onClick={() => handleClickAgain(" Bro!")}>Click Me Again</button>
+
+      {details.map((detail) => (
+        <div className="detail-preview">
+          <h3>{detail.fName}</h3>
+          <h4>{detail.lName}</h4>
+        </div>
+      ))}
     </div>
   );
 };
