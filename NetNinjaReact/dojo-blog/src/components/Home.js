@@ -20,6 +20,8 @@ const Home = () => {
 
   const [isPending, setIsPennding] = useState(true);
 
+  const [error, setError] = useState(null);
+
   // const handleDelete = (id) => {
   //   const newDetail = details.filter((detail) => detail.id !== id);
   //   setDetails(newDetail);
@@ -29,11 +31,19 @@ const Home = () => {
     setTimeout(() => {
       fetch("http://localhost:8000/blogs")
         .then((res) => {
+          if (!res.ok) {
+            throw Error("Could not fetch data from the source");
+          }
           return res.json();
         })
         .then((data) => {
           setDetails(data);
           setIsPennding(false);
+          setError(null);
+        })
+        .catch((err) => {
+          setIsPennding(false);
+          setError(err.message);
         });
     }, 1000);
   }, []);
@@ -57,6 +67,7 @@ const Home = () => {
       <button onClick={() => handleClickAgain(" Bro!")}>Click Me Again</button>
       <button onClick={() => setCar("Mercedes")}>Change Car</button>
 
+      {error && alert(error)}
       {isPending && <div>Loading.....</div>}
 
       {/* Props used to pass data from parent component to a child component */}
