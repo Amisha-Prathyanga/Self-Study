@@ -10,16 +10,28 @@ const Home = () => {
   //   alert(car);
   // }, [car]);
 
-  const [details, setDetails] = useState([
-    { fName: "Amisha", lName: "Prathyanga", age: 23, id: 1 },
-    { fName: "Jack", lName: "Ryan", age: 35, id: 2 },
-    { fName: "Amisha", lName: "Simmons", age: 43, id: 3 },
-  ]);
+  // const [details, setDetails] = useState([
+  //   { fName: "Amisha", lName: "Prathyanga", age: 23, id: 1 },
+  //   { fName: "Jack", lName: "Ryan", age: 35, id: 2 },
+  //   { fName: "Amisha", lName: "Simmons", age: 43, id: 3 },
+  // ]);
 
-  const handleDelete = (id) => {
-    const newDetail = details.filter((detail) => detail.id !== id);
-    setDetails(newDetail);
-  };
+  const [details, setDetails] = useState(null);
+
+  // const handleDelete = (id) => {
+  //   const newDetail = details.filter((detail) => detail.id !== id);
+  //   setDetails(newDetail);
+  // };
+
+  useEffect(() => {
+    fetch('http://localhost:8000/blogs')
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+      setDetails(data);
+    } );
+  }, []);
 
   const handleClick = () => {
     alert("Hello Bro!");
@@ -41,15 +53,15 @@ const Home = () => {
       <button onClick={() => setCar('Mercedes')}>Change Car</button>
 
       {/* Props used to pass data from parent component to a child component */}
-      <BlogList
+     { details && <BlogList
         details={details}
         title="All Details!"
-        handleDelete={handleDelete}
-      />
-      <BlogList
+        // handleDelete={handleDelete}
+      />}
+      {/* <BlogList
         details={details.filter((detail) => detail.fName === "Amisha")}
         title="All Amisha Details!"
-      />
+      /> */}
     </div>
   );
 };

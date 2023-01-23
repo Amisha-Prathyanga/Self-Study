@@ -38,7 +38,8 @@
 }
 
 .detail-preview{
-  max-width: 500px;
+  margin: auto;
+  max-width: 600px;
 }
 
 .detail-preview h3{
