@@ -4,7 +4,7 @@ import BlogList from "./BlogList";
 const Home = () => {
   const [name, setName] = useState("Amisha");
 
-  const [car, setCar] = useState('BMW');
+  const [car, setCar] = useState("BMW");
 
   // useEffect(() => {
   //   alert(car);
@@ -18,19 +18,24 @@ const Home = () => {
 
   const [details, setDetails] = useState(null);
 
+  const [isPending, setIsPennding] = useState(true);
+
   // const handleDelete = (id) => {
   //   const newDetail = details.filter((detail) => detail.id !== id);
   //   setDetails(newDetail);
   // };
 
   useEffect(() => {
-    fetch('http://localhost:8000/blogs')
-    .then(res => {
-      return res.json()
-    })
-    .then(data => {
-      setDetails(data);
-    } );
+    setTimeout(() => {
+      fetch("http://localhost:8000/blogs")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          setDetails(data);
+          setIsPennding(false);
+        });
+    }, 1000);
   }, []);
 
   const handleClick = () => {
@@ -50,14 +55,18 @@ const Home = () => {
 
       {/* Wraps the handle function inside another function to pass parameters */}
       <button onClick={() => handleClickAgain(" Bro!")}>Click Me Again</button>
-      <button onClick={() => setCar('Mercedes')}>Change Car</button>
+      <button onClick={() => setCar("Mercedes")}>Change Car</button>
+
+      {isPending && <div>Loading.....</div>}
 
       {/* Props used to pass data from parent component to a child component */}
-     { details && <BlogList
-        details={details}
-        title="All Details!"
-        // handleDelete={handleDelete}
-      />}
+      {details && (
+        <BlogList
+          details={details}
+          title="All Details!"
+          // handleDelete={handleDelete}
+        />
+      )}
       {/* <BlogList
         details={details.filter((detail) => detail.fName === "Amisha")}
         title="All Amisha Details!"
