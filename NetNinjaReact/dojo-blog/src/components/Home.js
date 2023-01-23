@@ -5,10 +5,15 @@ const Home = () => {
   const [name, setName] = useState("Amisha");
 
   const [details, setDetails] = useState([
-    { fName: "Amisha", lName: "Prathyanga", age: 23 },
-    { fName: "Jack", lName: "Ryan", age: 35 },
-    { fName: "Amisha", lName: "Simmons", age: 43 },
+    { fName: "Amisha", lName: "Prathyanga", age: 23, id: 1 },
+    { fName: "Jack", lName: "Ryan", age: 35, id: 2 },
+    { fName: "Amisha", lName: "Simmons", age: 43, id: 3 },
   ]);
+
+  const handleDelete = (id) => {
+    const newDetail = details.filter((detail) => detail.id !== id);
+    setDetails(newDetail);
+  };
 
   const handleClick = () => {
     alert("Hello Bro!");
@@ -27,9 +32,16 @@ const Home = () => {
       {/* Wraps the handle function inside another function to pass parameters */}
       <button onClick={() => handleClickAgain(" Bro!")}>Click Me Again</button>
 
-    {/* Props used to pass data from parent component to a child component */}
-     <BlogList details={details} title="All Details!"/>
-     <BlogList details={details.filter((detail) => detail.fName === "Amisha")} title="All Amisha Details!"/>
+      {/* Props used to pass data from parent component to a child component */}
+      <BlogList
+        details={details}
+        title="All Details!"
+        handleDelete={handleDelete}
+      />
+      <BlogList
+        details={details.filter((detail) => detail.fName === "Amisha")}
+        title="All Amisha Details!"
+      />
     </div>
   );
 };

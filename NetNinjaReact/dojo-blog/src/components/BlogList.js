@@ -1,9 +1,8 @@
-const BlogList = ({details, title}) => {
+const BlogList = ({ details, title, handleDelete }) => {
+  //What is done above is called destructuring
 
-    //What is done above is called destructuring
-
-//   const details = props.details;
-//   const title = props.title;
+  //   const details = props.details;
+  //   const title = props.title;
   return (
     <div className="blog-list">
       <h1>{title}</h1>;
@@ -11,6 +10,7 @@ const BlogList = ({details, title}) => {
         <div className="detail-preview">
           <h3>{detail.fName}</h3>
           <h4>{detail.lName}</h4>
+          <button onClick={() => handleDelete(detail.id)}>Delete Detail</button>
         </div>
       ))}
     </div>
