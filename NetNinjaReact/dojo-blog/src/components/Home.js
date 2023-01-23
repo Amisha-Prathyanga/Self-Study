@@ -1,4 +1,5 @@
 import { useState } from "react";
+import BlogList from "./BlogList";
 
 const Home = () => {
   const [name, setName] = useState("Amisha");
@@ -26,12 +27,8 @@ const Home = () => {
       {/* Wraps the handle function inside another function to pass parameters */}
       <button onClick={() => handleClickAgain(" Bro!")}>Click Me Again</button>
 
-      {details.map((detail) => (
-        <div className="detail-preview">
-          <h3>{detail.fName}</h3>
-          <h4>{detail.lName}</h4>
-        </div>
-      ))}
+    {/* Props used to pass data from parent component to a child component */}
+     <BlogList details={details} title="All Details!"/>
     </div>
   );
 };
