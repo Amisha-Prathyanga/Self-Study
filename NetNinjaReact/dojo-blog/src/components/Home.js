@@ -7,7 +7,7 @@ const Home = () => {
   const [details, setDetails] = useState([
     { fName: "Amisha", lName: "Prathyanga", age: 23 },
     { fName: "Jack", lName: "Ryan", age: 35 },
-    { fName: "Jhon", lName: "Simmons", age: 43 },
+    { fName: "Amisha", lName: "Simmons", age: 43 },
   ]);
 
   const handleClick = () => {
@@ -29,6 +29,7 @@ const Home = () => {
 
     {/* Props used to pass data from parent component to a child component */}
      <BlogList details={details} title="All Details!"/>
+     <BlogList details={details.filter((detail) => detail.fName === "Amisha")} title="All Amisha Details!"/>
     </div>
   );
 };
