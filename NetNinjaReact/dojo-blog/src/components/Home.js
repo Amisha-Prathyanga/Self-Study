@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BlogList from "./BlogList";
 
 const Home = () => {
   const [name, setName] = useState("Amisha");
+
+  const [car, setCar] = useState('BMW');
+
+  // useEffect(() => {
+  //   alert(car);
+  // }, [car]);
 
   const [details, setDetails] = useState([
     { fName: "Amisha", lName: "Prathyanga", age: 23, id: 1 },
@@ -26,11 +32,13 @@ const Home = () => {
   return (
     <div className="home">
       <h3>Home</h3>
+      <h2>{car}</h2>
       <h2>{name}</h2>
       <button onClick={handleClick}>Click Me</button>
 
       {/* Wraps the handle function inside another function to pass parameters */}
       <button onClick={() => handleClickAgain(" Bro!")}>Click Me Again</button>
+      <button onClick={() => setCar('Mercedes')}>Change Car</button>
 
       {/* Props used to pass data from parent component to a child component */}
       <BlogList
