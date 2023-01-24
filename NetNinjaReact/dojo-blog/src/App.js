@@ -1,6 +1,7 @@
 import "./App.css";
 import Home from "./components/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Create from "./components/Create";
 //Switch is removed from version 6 rrd
 
 function App() {
@@ -13,8 +14,8 @@ function App() {
         <h1>{title}</h1>
         <h2>{subtitle}</h2>
         <Routes>
-          <Route path="/" element={<Home />} >
-           </Route>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/create" element={<Create />} />
         </Routes>
       </div>
     </Router>
