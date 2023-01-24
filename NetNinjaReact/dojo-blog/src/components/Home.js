@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import BlogList from "./BlogList";
+import useFetch from './useFetch';
+
 
 const Home = () => {
   const [name, setName] = useState("Amisha");
 
   const [car, setCar] = useState("BMW");
+
+  //By adding : details; the data is renamed as details
+  const {data: details, isPending, error} = useFetch('http://localhost:8000/blogs')
 
   // useEffect(() => {
   //   alert(car);
@@ -16,37 +21,37 @@ const Home = () => {
   //   { fName: "Amisha", lName: "Simmons", age: 43, id: 3 },
   // ]);
 
-  const [details, setDetails] = useState(null);
+  // const [details, setDetails] = useState(null);
 
-  const [isPending, setIsPennding] = useState(true);
+  // const [isPending, setIsPennding] = useState(true);
 
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
 
   // const handleDelete = (id) => {
   //   const newDetail = details.filter((detail) => detail.id !== id);
   //   setDetails(newDetail);
   // };
 
-  useEffect(() => {
-    setTimeout(() => {
-      fetch("http://localhost:8000/blogs")
-        .then((res) => {
-          if (!res.ok) {
-            throw Error("Could not fetch data from the source");
-          }
-          return res.json();
-        })
-        .then((data) => {
-          setDetails(data);
-          setIsPennding(false);
-          setError(null);
-        })
-        .catch((err) => {
-          setIsPennding(false);
-          setError(err.message);
-        });
-    }, 1000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     fetch("http://localhost:8000/blogs")
+  //       .then((res) => {
+  //         if (!res.ok) {
+  //           throw Error("Could not fetch data from the source");
+  //         }
+  //         return res.json();
+  //       })
+  //       .then((data) => {
+  //         setDetails(data);
+  //         setIsPennding(false);
+  //         setError(null);
+  //       })
+  //       .catch((err) => {
+  //         setIsPennding(false);
+  //         setError(err.message);
+  //       });
+  //   }, 1000);
+  // }, []);
 
   const handleClick = () => {
     alert("Hello Bro!");
