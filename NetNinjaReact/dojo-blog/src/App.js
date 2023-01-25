@@ -3,7 +3,8 @@ import Home from "./components/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Create from "./components/Create";
 import Navbar from "./components/Navbar";
-import BlogDetails from './components/BlogDetails';
+import BlogDetails from "./components/BlogDetails";
+import NotFound from "./components/NotFound";
 //Switch is removed from version 6 rrd
 
 function App() {
@@ -15,11 +16,12 @@ function App() {
         <div className="content"></div>
         <h1>{title}</h1>
         <h2>{subtitle}</h2>
-        <Navbar/>
+        <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/create" element={<Create />} />
-          <Route path="/blogs/:id" element={<BlogDetails />} /> 
+          <Route path="/blogs/:id" element={<BlogDetails />} />
+          <Route path="*" element={<NotFound />} />
           {/* Route parameters above one */}
         </Routes>
       </div>
