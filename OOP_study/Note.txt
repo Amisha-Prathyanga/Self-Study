@@ -3,3 +3,8 @@ Encapsulation - Wrapping up data into a single unit.
 Inheritance - An object oriented principle where code is organized through class hierachies. Use extend keyword.
               Eg: Vehicle ----> car, bike, bus...
 
+Polymorphism - The abiliity for an object or function to take many different foms.
+                Eg: A man can be a husband, employee, father at the same time.
+
+Abstraction - is the property by which only essential details are displayed to the user.
+                Eg: a car, coffee machine
