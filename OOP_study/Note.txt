@@ -8,3 +8,9 @@ Polymorphism - The abiliity for an object or function to take many different fom
 
 Abstraction - is the property by which only essential details are displayed to the user.
                 Eg: a car, coffee machine
+
+data structures and algorithms
+SQL
+Design Patterns
+Network
+React
