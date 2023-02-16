@@ -13,6 +13,7 @@ const BlogDetails = () => {
   const navigate = useNavigate();
 
   const handleDelete = () => {
+    //blog.id = id
     fetch("http://localhost:8000/blogs/" + blog.id, {
       method: "DELETE",
     }).then(() => {
