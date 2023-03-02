@@ -21,7 +21,7 @@ const Home = () => {
   //   { fName: "Amisha", lName: "Simmons", age: 43, id: 3 },
   // ]);
 
-  // const [details, setDetails] = useState(null);
+  //const [details, setDetails] = useState(null);
 
   // const [isPending, setIsPennding] = useState(true);
 

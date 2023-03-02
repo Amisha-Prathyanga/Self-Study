@@ -5,6 +5,7 @@ const BlogList = ({ details, title }) => {
 
   //   const details = props.details;
   //   const title = props.title;
+
   return (
     <div className="blog-list">
       <h1>{title}</h1>
