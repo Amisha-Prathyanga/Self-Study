@@ -37,5 +37,15 @@ article img, article.featured img{
 
 article.featured{
     display: grid;
-    
+    grid-template-columns: 1fr 1fr;
+    grid-column: span 3;
+    gap: 60px;
+    align-items: center;
 }
+
+article{
+    border: 4px solid #f0f4f4;
+    padding: 5px 5px 5px 5px;
+    border-radius: 10px;
+}
+
