@@ -16,3 +16,26 @@ p{
     color: #828b8a;
 }
 
+header{
+    max-width: 1200px;
+    margin: 40px auto;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #767f7e;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 1200px;
+    gap: 60px;
+    margin: 20px auto;
+}
+
+article img, article.featured img{
+    width: 100%;
+}
+
+article.featured{
+    display: grid;
+    
+}
